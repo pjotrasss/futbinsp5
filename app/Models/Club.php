@@ -7,15 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Club extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'ID';
     public function owner() {
-        return $this->belongsTo(User::class,'OWNER_ID');
+        return $this->belongsTo(User::class,'OWNER_ID', 'ID');
     }
-    public function tournaments() {
+    public function currentLeague() {
+        $season = 4;
+
         return $this->belongsToMany(
-            Tournament::class,
-            'tournaments_clubs',
+            League::class,
+            'leagues_clubs',
             'CLUB_ID',
-            'TOURNAMENT_ID'
-        );
+            'LEAGUE_ID'
+        )->withPivot('SEASON')
+        ->wherePivot('SEASON', $season);
     }
 }

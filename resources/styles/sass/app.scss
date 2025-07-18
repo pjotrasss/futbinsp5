@@ -1,11 +1,10 @@
 // resources/sass/app.scss
-@use '/resources/sass/navabar.scss';
+@use '/resources/styles/sass/navbar.scss';
 
 $font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-$bg: #000000;
 
 body {
-  background: $bg;
+  background: linear-gradient(135deg, #2a2a72 0%, #009ffd 74%);
   font-family: $font-sans;
   margin: 0;
 }
