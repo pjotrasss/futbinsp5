@@ -22,6 +22,10 @@ npm-debug.log
 yarn-error.log
 Thumbs.db
 
+# SSH Keys
+github_keys
+github_keys.pub
+
 # Laravel 4
 app/storage/
 bootstrap/compiled.php
