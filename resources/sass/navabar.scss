@@ -1,0 +1,125 @@
+$borderRadius: 10px;
+$spacer: 1rem;
+$primary: #C4151C;
+$text: #6b6b6b;
+$linkHeight: $spacer * 3.5;
+$timing: 250ms;
+$transition: $timing ease all;
+$linkWidth: auto;
+
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+header{
+    $ref: &;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.712);  
+    color: $text;
+    box-shadow: 0 0 40px rgba(0,0,0,0.03);
+    height: 6rem;
+    display: flex;
+    align-items:center;
+    gap: 3rem;
+    width: 100%;
+  }
+
+  .navbar{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow: hidden;
+  
+  &__menu{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    list-style: none;
+  }
+  &__link{
+    font-size: 1.5rem;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    height: $linkHeight;
+    width: $linkWidth;
+    color: $text;
+    transition: $transition;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 500ms ease all;
+    svg{
+      transition: 500ms ease all;
+    }
+    &:hover{
+      svg{
+        stroke: $primary;
+      }
+      color: $primary;
+    }
+    &__active{
+      color: #b3b3b3;
+    }
+    .navbar:not(:hover) &:focus,
+    &:hover{
+      span{
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+  &__item{
+    width: 33%;
+    &__w__border__r{
+      border-right: 2px solid white;
+    }
+    &:last-child{
+      &:before {
+        content: '';
+        position: absolute;
+        left: -8rem;
+        transform: translateX(-50%);
+        margin-left: $linkWidth/2;
+        bottom: -1.25rem;
+        height: 0.5rem;
+        width: 2px;
+        background: $primary;
+        $speedlineColor: rgba(#fff,0.2);
+        $speedGap: 3rem;
+        $shadow : 0 -0.5rem $primary,0 -0.5rem $primary, 0 0 $speedGap 0.5rem $primary,2rem 0 0 $speedlineColor, -$speedGap 0 0 $speedlineColor;
+        @for $i from 2 to 120{
+          $shadow: $shadow + #{","}+ $i*$speedGap 0 0 $speedlineColor;
+          $shadow: $shadow + #{","}+ $i*-$speedGap 0 0 $speedlineColor;
+        }
+        box-shadow: $shadow;
+        transition: 500ms ease all;
+      }
+    }
+    
+    @for $i from 1 to 12 {
+      &:first-child:nth-last-child(#{$i}),
+      &:first-child:nth-last-child(#{$i}) ~ li {
+        @for $j from 1 to $i {
+          &:nth-child(#{$j}):hover {
+            ~ li:last-child:before {
+              left: math.div(100%, $i) * ($j - 0.5);
+            }
+          }
+        }
+        &:last-child:hover:before {
+          left: math.div(100%, $i) * ($i - 0.5);
+        }
+      }
+    }
+    
+  }
+}
