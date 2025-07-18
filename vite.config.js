@@ -12,7 +12,13 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ['resources/sass/navbar.scss', 'resources/js/app.js', 'resources/sass/app.scss'],
+            input: [
+                'resources/js/app.js',
+                'resources/js/clubs.js',
+                'resources/styles/sass/navbar.scss',
+                'resources/styles/sass/app.scss',
+                'resources/styles/sass/clubs.scss'
+            ],
             refresh: true,
         })
         ],

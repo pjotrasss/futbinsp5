@@ -18,12 +18,13 @@ header{
     right: 0;
     background: rgba(0, 0, 0, 0.712);  
     color: $text;
-    box-shadow: 0 0 40px rgba(0,0,0,0.03);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.432);
     height: 6rem;
     display: flex;
     align-items:center;
     gap: 3rem;
     width: 100%;
+    z-index: 1;
   }
 
   .navbar{

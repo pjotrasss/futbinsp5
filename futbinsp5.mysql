@@ -103,28 +103,28 @@ INSERT INTO futbinsp5.clubs(OWNER_ID, CLUB, LOGO_URL, BANNER_URL, ACTIVE) VALUES
 (36,'Bayer Leverkusen',                 'clubs/logos/bayer.png',                     'clubs/banners/bayer.png',1),
 (37,'AFC Wimbledon',                    'clubs/logos/wimbledon.png',                     'clubs/banners/wimbledon.png',1);
 
-CREATE TABLE futbinsp5.tournaments(
+CREATE TABLE futbinsp5.leagues(
     ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     LEAGUE varchar(20),
     LOGO_URL varchar(30)
 );
 
-INSERT INTO futbinsp5.tournaments(LEAGUE, LOGO_URL) VALUES
+INSERT INTO futbinsp5.leagues(LEAGUE, LOGO_URL) VALUES
 ('Ekstraliga +','leagues/plus.png'),
 ('Ekstraliga','leagues/ekstraliga.png'),
 ('Ekstraliga B','leagues/plus.png'),
 ('Ekstraliga Junior','leagues/junior.webp');
 
-CREATE TABLE futbinsp5.tournaments_clubs(
+CREATE TABLE futbinsp5.leagues_clubs(
     ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    TOURNAMENT_ID int NOT NULL,
+    LEAGUE_ID int NOT NULL,
     CLUB_ID int NOT NULL,
     SEASON int NOT NULL,
-    FOREIGN KEY (TOURNAMENT_ID) REFERENCES tournaments(ID),
+    FOREIGN KEY (LEAGUE_ID) REFERENCES leagues(ID),
     FOREIGN KEY (CLUB_ID) REFERENCES clubs(ID)
 );
 
-INSERT INTO futbinsp5.tournaments_clubs (SEASON, TOURNAMENT_ID, CLUB_ID) VALUES
+INSERT INTO futbinsp5.leagues_clubs (SEASON, LEAGUE_ID, CLUB_ID) VALUES
 (4,1,1),
 (4,1,2),
 (4,1,22),
