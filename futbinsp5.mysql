@@ -1,0 +1,260 @@
+CREATE TABLE futbinsp5.privilege_levels(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    PRIVILEGE_LEVEL varchar(25)
+);
+
+INSERT INTO futbinsp5.privilege_levels(PRIVILEGE_LEVEL) VALUES
+('transfermaster'),
+('club_owner');
+
+CREATE TABLE futbinsp5.users(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    PRIVILEGE_LEVEL_ID int NOT NULL,
+    USERNAME varchar(25),
+    DISCORD_TAG varchar(25),
+    FOREIGN KEY (PRIVILEGE_LEVEL_ID) REFERENCES privilege_levels(ID)
+);
+
+INSERT INTO futbinsp5.users(PRIVILEGE_LEVEL_ID, USERNAME, DISCORD_TAG) VALUES
+(1,'PGS','pgs'),
+(2,'Stolica','stolica'),
+(2,'Olii','0lii_'),
+(2,'Marchewka','marchewka.'),
+(2,'Travisek','travisek1602'),
+(2,'Kupcia','kupcia2087'),
+(2,'Taranek','taranek__'),
+(2,'Osin','cegielnikov'),
+(2,'Radek','foolme_'),
+(2,'Grzeniu','grzesek77'),
+(2,'Ramzes','_ramzes.'),
+(2,'Goliath','goliathg1'),
+(2,'Chwast','chwast'),
+(2,'Pietrucha','_pitrucha_'),
+(2,'Malwina','malwinciaa'),
+(2,'Iga','igunska'),
+(2,'Kawa','kawa__1'),
+(2,'Belfer','belfer'),
+(2,'Blader','bladerxcv'),
+(2,'Krystian','bekostka'),
+(2,'Skrobisz','skrobiszsuko'),
+(2,'Przemek','przemekratchet89'),
+(2,'EliteQ','eliteq'),
+(2,'Rastowski','rastowski'),
+(2,'Olerlo','olerlo'),
+(2,'Pjotrasss','shaggyshaggs'),
+(2,'Zurol','livekac'),
+(2,'Rychu','general_spejson'),
+(2,'TrymeX','trymextv'),
+(2,'Beścik','_bescik'),
+(2,'Panciovsky','panciovsky'),
+(2,'Wrug','wrug'),
+(2,'Abix','.abix'),
+(2,'Rej','erj_rej'),
+(2,'TheXan','thexan1683'),
+(2,'Adames','adames6006'),
+(2,'Gragas','gragas77');
+
+CREATE TABLE futbinsp5.clubs(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    OWNER_ID int NOT NULL,
+    CLUB varchar(30),
+    LOGO_URL varchar(30),
+    BANNER_URL varchar(35),
+    ACTIVE boolean,
+    FOREIGN KEY (OWNER_ID) REFERENCES users(ID)
+);
+
+INSERT INTO futbinsp5.clubs(OWNER_ID, CLUB, LOGO_URL, BANNER_URL, ACTIVE) VALUES
+(1,'Real Madryt',                       'clubs/logos/real.webp',                     'clubs/banners/real.webp',1),
+(2,'Sporting',                          'clubs/logos/sporting.png',                     'clubs/banners/sporting.webp',1),
+(3,'Wolverhampton',                     'clubs/logos/wolves.png',                     'clubs/banners/wolves.webp',1),
+(4,'Lech Poznań',                       'clubs/logos/lech.png',                     'clubs/banners/lech.png',1),
+(5,'Atletico Madryt',                   'clubs/logos/atletico.png',                     'clubs/banners/atletico.png',1),
+(6,'Borussia Dortmund',                 'clubs/logos/borussia.png',                     'clubs/banners/borussia.png',1),
+(7,'West Bromwich',                     'clubs/logos/westbromwich.png',                     'clubs/banners/westbromwich.png',1),
+(8,'FC Porto',                          'clubs/logos/porto.png',                     'clubs/banners/porto.png',1),
+(9,'Manchester City',                   'clubs/logos/mancity.webp',                     'clubs/banners/mancity.png',1),
+(10,'Real Betis',                       'clubs/logos/realbetis.png',                     'clubs/banners/realbetis.png',1),
+(11,'Śląsk Wrocław',                    'clubs/logos/slask.png',                     'clubs/banners/slask.png',1),
+(12,'Anderlecht',                       'clubs/logos/anderlecht.png',                     'clubs/banners/anderlecht.png',1),
+(13,'Bayern Monachium',                 'clubs/logos/bayern.svg',                     'clubs/banners/bayern.png',1),
+(14,'Wolfsburg',                        'clubs/logos/wolfsburg.webp',                     'clubs/banners/wolfsburg.png',1),
+(15,'Olympique Marsylia',               'clubs/logos/olympique.png',                     'clubs/banners/olympique.png',1),
+(16,'Brentford',                        'clubs/logos/brnetford.png',                     'clubs/banners/brentford.png',1),
+(17,'Panathinaikos',                    'clubs/logos/panathinaikos.png',                     'clubs/banners/panathinaikos.png',1),
+(18,'Cadiz',                            'clubs/logos/cadiz.png',                     'clubs/banners/cadiz.png',1),
+(19,'Jagiellonia Białystok',            'clubs/logos/jagiellonia.png',                     'clubs/banners/jagiellonia.png',1),
+(20,'Liverpool',                        'clubs/logos/liverpool.webp',                     'clubs/banners/liverpool.png',1),
+(21,'Eintracht Frankfurt',              'clubs/logos/eintracht.png',                     'clubs/banners/eintracht.png',1),
+(22,'Manchester United',                'clubs/logos/manunited.webp',                     'clubs/banners/manunited.png',1),
+(23,'FC Barcelona',                     'clubs/logos/barcelona.png',                     'clubs/banners/barcelona.png',1),
+(24,'Tottenham',                        'clubs/logos/tottenham.png',                     'clubs/banners/tottenham.png',1),
+(25,'Arsenal',                          'clubs/logos/arsenal.webp',                     'clubs/banners/arsenal.png',1),
+(26,'Cracovia Kraków',                  'clubs/logos/cracovia.png',                     'clubs/banners/cracovia.png',1),
+(27,'Fiorentina',                       'clubs/logos/fiorentina.png',                     'clubs/banners/fiorentina.png',1),
+(28,'Stal Mielec',                      'clubs/logos/stal.png',                     'clubs/banners/stal.png',1),
+(29,'Deportivo La Coruna',              'clubs/logos/deportivo.png',                     'clubs/banners/deportivo.png',1),
+(30,'Górnik Zabrze',                    'clubs/logos/gornik.png',                     'clubs/banners/gornik.png',1),
+(31,'SSC Napoli',                       'clubs/logos/napoli.png',                     'clubs/banners/napoli.png',1),
+(32,'Puszcza Niepołonmice',             'clubs/logos/puszcza.png',                     'clubs/banners/puszcza.png',1),
+(33,'Al Hilal',                         'clubs/logos/alhilal.png',                    'clubs/banners/alhilal.png',1),
+(34,'Vancouver Whitecaps',              'clubs/logos/vancouver.png',                     'clubs/banners/vancouver.png',1),
+(35,'Juventus',                         'clubs/logos/juventus.png',                     'clubs/banners/juventus.png',1),
+(36,'Bayer Leverkusen',                 'clubs/logos/bayer.png',                     'clubs/banners/bayer.png',1),
+(37,'AFC Wimbledon',                    'clubs/logos/wimbledon.png',                     'clubs/banners/wimbledon.png',1);
+
+CREATE TABLE futbinsp5.tournaments(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    LEAGUE varchar(20),
+    LOGO_URL varchar(30)
+);
+
+INSERT INTO futbinsp5.tournaments(LEAGUE, LOGO_URL) VALUES
+('Ekstraliga +','leagues/plus.png'),
+('Ekstraliga','leagues/ekstraliga.png'),
+('Ekstraliga B','leagues/plus.png'),
+('Ekstraliga Junior','leagues/junior.webp');
+
+CREATE TABLE futbinsp5.tournaments_clubs(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TOURNAMENT_ID int NOT NULL,
+    CLUB_ID int NOT NULL,
+    SEASON int NOT NULL,
+    FOREIGN KEY (TOURNAMENT_ID) REFERENCES tournaments(ID),
+    FOREIGN KEY (CLUB_ID) REFERENCES clubs(ID)
+);
+
+INSERT INTO futbinsp5.tournaments_clubs (SEASON, TOURNAMENT_ID, CLUB_ID) VALUES
+(4,1,1),
+(4,1,2),
+(4,1,22),
+(4,2,6),
+(4,2,5),
+(4,2,23),
+(4,2,8),
+(4,2,4),
+(4,2,3),
+(4,2,25),
+(4,2,11),
+(4,2,24),
+(4,3,28),
+(4,3,9),
+(4,3,7),
+(4,3,30),
+(4,3,10),
+(4,3,31),
+(4,3,34),
+(4,3,29),
+(4,3,27),
+(4,3,37),
+(4,3,26),
+(4,3,15),
+(4,4,19),
+(4,4,32),
+(4,4,18),
+(4,4,14),
+(4,4,20),
+(4,4,35),
+(4,4,13),
+(4,4,33),
+(4,4,16),
+(4,4,36),
+(4,4,17),
+(4,4,21),
+(4,4,12);
+
+
+
+
+
+
+
+
+
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Club extends Model
+{
+    public $timestamps = false;
+    public function owner() {
+        return $this->belongsTo(User::class,'OWNER_ID');
+    }
+    public function tournaments() {
+        return $this->belongsToMany(
+            Tournament::class,
+            'tournaments_clubs',
+            'CLUB_ID',
+            'TOURNAMENT_ID'
+        );
+    }
+}
+
+
+
+
+
+
+
+
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    public $timestamps = false;
+    
+    public function privilege_level() {
+        return $this->belongsTo(PrivilegeLevel::class, 'PRIVILEGE_LEVEL_ID'); 
+    }
+}
+
+
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tournament extends Model
+{
+    public $timestamps = false;
+    public function clubs() {
+        return $this->belongsToMany(
+            Club::class,
+            'tournaments_clubs',
+            'TOURNAMENT_ID',
+            'CLUB_ID'
+        );
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class TournamentClub extends Model
+{
+    public $timestamps = false;
+}

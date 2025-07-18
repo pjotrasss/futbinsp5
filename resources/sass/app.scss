@@ -1,0 +1,11 @@
+// resources/sass/app.scss
+@use '/resources/sass/navabar.scss';
+
+$font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$bg: #000000;
+
+body {
+  background: $bg;
+  font-family: $font-sans;
+  margin: 0;
+}

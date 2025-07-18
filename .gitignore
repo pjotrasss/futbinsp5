@@ -1,0 +1,44 @@
+# Laravel - ogólne
+*.log
+.DS_Store
+.fleet
+.idea
+.nova
+.vscode
+.zed
+auth.json
+vendor/
+node_modules/
+.env
+.env*
+storage/*.key
+public/storage
+public/build
+public/hot
+storage/pail
+.phpunit.cache
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+Thumbs.db
+
+# Laravel 4
+app/storage/
+bootstrap/compiled.php
+
+# Alternatywny public_path (np. public_html)
+public_html/storage
+public_html/hot
+
+# Homestead / Vagrant
+Homestead.yaml
+Homestead.json
+.vagrant
+
+# Inne
+.env.backup
+.env.production
+.phpactor.json
+*.bak
+*.swp
+*.tmp
