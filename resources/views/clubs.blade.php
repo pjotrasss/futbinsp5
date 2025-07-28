@@ -3,7 +3,7 @@
 
     <div class="clubs_list">
         @foreach($clubs as $club)
-            <a class="club_container">
+            <a href="" class="club_container">
                 <div class="club_logo">
                     <img src="{{ asset('images/'.$club->LOGO_URL) }}" alt="{{ $club->CLUB }}">
                 </div>

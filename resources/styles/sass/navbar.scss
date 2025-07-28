@@ -1,7 +1,7 @@
 $borderRadius: 10px;
 $spacer: 1rem;
 $primary: #C4151C;
-$text: #6b6b6b;
+$text: #7a7979;
 $linkHeight: $spacer * 3.5;
 $timing: 250ms;
 $transition: $timing ease all;
@@ -16,9 +16,9 @@ header{
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.712);  
+    background: rgba(0, 0, 0, 0.8);  
     color: $text;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.432);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     height: 6rem;
     display: flex;
     align-items:center;
@@ -68,7 +68,7 @@ header{
       color: $primary;
     }
     &__active{
-      color: #b3b3b3;
+      color: #ffffff;
     }
     .navbar:not(:hover) &:focus,
     &:hover{

@@ -7,11 +7,18 @@ main {
     h1 {
         background: $container_bg_color;
         border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 2%;
         font-size: 3rem;
         margin: 4%;
     }
 }
+
+a.club_container:visited, a.club_container:focus, a.club_container:link {
+    color: #000000;
+    text-decoration: none;
+}
+
 .clubs_list {
     display: flex;
     flex-flow: row wrap;

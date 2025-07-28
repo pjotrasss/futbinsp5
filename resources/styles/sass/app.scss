@@ -4,7 +4,8 @@
 $font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 body {
-  background: linear-gradient(135deg, #2a2a72 0%, #009ffd 74%);
+  background: linear-gradient(90deg, #2a2a72 0%, #009ffd 74%);
+  background-attachment: fixed;
   font-family: $font-sans;
   margin: 0;
 }
